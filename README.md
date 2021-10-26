@@ -3,7 +3,10 @@
 
 ## Equipe
 
-- Guilherme Barboza Mendonça
+- Guilherme Barboza Mendonça (2019006655)
+- Fernanda Carolina da Silva Pereira (2019431380)
+- Túlio Dias Altíssimo (2017014375)
+- Hilário Corrêa da Silva Neto (2019006701)
 
 ## Objetivo
 
