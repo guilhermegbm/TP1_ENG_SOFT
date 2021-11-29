@@ -56,7 +56,7 @@ b) Permitir que os clientes possam dinamicamente preencher quais e quantos campo
 c) Configurar as tabelas de Produto, Categoria, Tipo, Seção, entre outras, para permitir que a filtragem dinâmica seja realizada.
 d) Construir funcionalidade de filtragem dinâmica de Produto no Backend.
 
-6)
+6) Atribuição: Túlio Dias Altíssimo
 
 a) Para todos os produtos listados, permitir que os clientes possam clicar em um botão para adicionar um produto no carrinho.
 b) Construir tela de gerenciamento do carrinho de compras de tal forma que os clientes possam visualizar os produtos atualmente no Carrinho, remover produtos ou alterar a quantidade solicitada.
