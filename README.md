@@ -3,9 +3,9 @@
 
 ## Equipe
 
-- Guilherme Barboza Mendonça (2019006655): Backend + BD
-- Túlio Dias Altíssimo (2017014375): Backend + BD
-- Hilário Corrêa da Silva Neto (2019006701): UI design + Frontend
+- Guilherme Barboza Mendonça (2019006655): Full stack
+- Túlio Dias Altíssimo (2017014375): Full stack
+- Hilário Corrêa da Silva Neto (2019006701): Full stack
 
 ## Objetivo
 
