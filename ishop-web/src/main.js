@@ -14,6 +14,7 @@ import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from "@fort
 
 import './assets/css/main.css'
 import './assets/css/login.css'
+import './assets/css/dashboard.css'
 
 Vue.use(VueRouter);
 
