@@ -5,9 +5,6 @@
     </template>
     <b-form v-on:submit.prevent="fazerLogin()">
       <b-form-row>
-        <b-col cols="12">Teste</b-col>
-      </b-form-row>
-      <b-form-row>
         <b-col cols="12">
           <label for="login-email" class="login-label mt-3 mb-1">Email:</label>
           <b-form-input
@@ -60,64 +57,60 @@ export default {
       loadingFazerLogin: false,
 
       valid_email: null,
-      valid_senha: null
+      valid_senha: null,
+
+      usuariosClientes: [
+        {
+          nome: "Guilherme Barboza",
+          email: "gui@ishop.com",
+          senha: "111"
+        },
+        {
+          nome: "Hilário Correa",
+          email: "hilario@ishop.com",
+          senha: "222"
+        },
+        {
+          nome: "Túlio Dias",
+          email: "tulio@ishop.com",
+          senha: "333"
+        }
+      ]
     };
   },
 
   methods: {
-    fazerLogin: function() {
+    sleep: function(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    },
+
+    fazerLogin: async function() {
       if (!this.validateForm()) {
         return;
       }
       this.loadingFazerLogin = true;
 
-      let formData = new FormData();
-      formData.append("login", this.loginData.email);
-      formData.append("senha", this.loginData.senha);
+      await this.sleep(1500);
 
-      /*axios
-        .post(this.$pathManager.fazerLogin(), formData, {
-          headers: {
-            "Content-Type": "multipart/form-data"
-          }
-        })
-        .then(response => {
-          this.loadingFazerLogin = false;
+      let usuarioEncontrado = undefined;
 
-          //TODO: Retornar os dados do usuário que está logando e colocá-los no   localStorage
-          if (
-            response.status == 200 &&
-            response.data != null &&
-            response.data != ""
-          ) {
-            let usuarioLogado = response.data;
-            localStorage.setItem(
-              "usuarioLogado",
-              JSON.stringify(usuarioLogado)
-            );
+      this.usuariosClientes.forEach(usuario => {
+        if (
+          this.loginData.email == usuario.email &&
+          this.loginData.senha == usuario.senha
+        ) {
+          usuarioEncontrado = usuario;
+        }
+      });
 
-            let caminho = "/dap/enviarDaps";
-            this.$router.push({ path: caminho });
-          }
-        })
-        .catch(exception => {
-          this.loadingFazerLogin = false;
-          if (exception.response.status == 400) {
-            this.mensagem(exception.response.data, "Atenção", "warning");
-          } else if (exception.response.status == 500) {
-            if (Array.isArray(exception.response.data)) {
-              for (var i = 0; i < exception.response.data.length; i++) {
-                this.mensagem(
-                  exception.response.data[i].mensagem,
-                  "Erro",
-                  "danger"
-                );
-              }
-            } else {
-              this.mensagem(exception.response.data.mensagem, "Erro", "danger");
-            }
-          }
-        });*/
+      this.loadingFazerLogin = false;
+
+      if (usuarioEncontrado) {
+        let caminho = "/dashboard";
+        this.$router.push({ path: caminho });
+      } else {
+        this.mensagem("Email ou senha incorretos", "Atenção", "warning");
+      }
     },
     validateForm: function() {
       let formValido = true;
