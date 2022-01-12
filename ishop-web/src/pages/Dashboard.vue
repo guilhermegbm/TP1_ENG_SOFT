@@ -13,7 +13,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <!-- Alinhado à direita -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item href="#" right >
+          <b-nav-item href="#" right>
             <b-button variant="info" style="padding: 0px">
               <font-awesome-icon icon="shopping-cart" fixed-width />
               <b-badge>0</b-badge>
@@ -89,105 +89,34 @@
         </b-row>
 
         <b-row>
-          <b-col cols="3">
-            <b-card style="max-width: 20rem;">
-              <b-card-img
-                :src="require('../assets/images/notebook-1.webp')"
-                alt="notebook-1"
-                top="true"
-              ></b-card-img>
+          <b-col cols="12">
+            <b-list-group horizontal>
+              <b-list-group-item v-for="(produto, index) in produtos" :key="index">
+                <b-card style="max-width: 20rem;">
+                  <b-card-img
+                    :src="'data:image/png;base64, ' + produto.image"
+                    :alt="produto.name"
+                    v-bind:top="true"
+                  ></b-card-img>
 
-              <b-card-text>Notebook Lenovo Ultrafino Ideapad 3i I3-10110u 4GB 256GB SSD Tela 15,6" Windows 11 - Prata</b-card-text>
+                  <b-card-text>{{produto.description}}</b-card-text>
 
-              <b-card-title>R$ 2832,99</b-card-title>
+                  <b-card-title>R$ {{produto.price}}</b-card-title>
 
-              <b-button-group style="width: 100%">
-                <b-button variant="success">
-                  <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="primary">
-                  <font-awesome-icon icon="info-circle" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="info">
-                  <font-awesome-icon icon="heart" fixed-width size="lg" />
-                </b-button>
-              </b-button-group>
-            </b-card>
-          </b-col>
-          <b-col cols="3">
-            <b-card style="max-width: 20rem;">
-              <b-card-img
-                :src="require('../assets/images/notebook-1.webp')"
-                alt="notebook-1"
-                top="true"
-              ></b-card-img>
-
-              <b-card-text>Notebook Lenovo Ultrafino Ideapad 3i I3-10110u 4GB 256GB SSD Tela 15,6" Windows 11 - Prata</b-card-text>
-
-              <b-card-title>R$ 2832,99</b-card-title>
-
-              <b-button-group style="width: 100%">
-                <b-button variant="success">
-                  <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="primary">
-                  <font-awesome-icon icon="info-circle" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="info">
-                  <font-awesome-icon icon="heart" fixed-width size="lg" />
-                </b-button>
-              </b-button-group>
-            </b-card>
-          </b-col>
-          <b-col cols="3">
-            <b-card style="max-width: 20rem;">
-              <b-card-img
-                :src="require('../assets/images/notebook-1.webp')"
-                alt="notebook-1"
-                top="true"
-              ></b-card-img>
-
-              <b-card-text>Notebook Lenovo Ultrafino Ideapad 3i I3-10110u 4GB 256GB SSD Tela 15,6" Windows 11 - Prata</b-card-text>
-
-              <b-card-title>R$ 2832,99</b-card-title>
-
-              <b-button-group style="width: 100%">
-                <b-button variant="success">
-                  <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="primary">
-                  <font-awesome-icon icon="info-circle" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="info">
-                  <font-awesome-icon icon="heart" fixed-width size="lg" />
-                </b-button>
-              </b-button-group>
-            </b-card>
-          </b-col>
-          <b-col cols="3">
-            <b-card style="max-width: 20rem;">
-              <b-card-img
-                :src="require('../assets/images/notebook-1.webp')"
-                alt="notebook-1"
-                top="true"
-              ></b-card-img>
-
-              <b-card-text>Notebook Lenovo Ultrafino Ideapad 3i I3-10110u 4GB 256GB SSD Tela 15,6" Windows 11 - Prata</b-card-text>
-
-              <b-card-title>R$ 2832,99</b-card-title>
-
-              <b-button-group style="width: 100%">
-                <b-button variant="success">
-                  <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="primary">
-                  <font-awesome-icon icon="info-circle" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="info">
-                  <font-awesome-icon icon="heart" fixed-width size="lg" />
-                </b-button>
-              </b-button-group>
-            </b-card>
+                  <b-button-group style="width: 100%">
+                    <b-button variant="success">
+                      <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
+                    </b-button>
+                    <b-button variant="primary">
+                      <font-awesome-icon icon="info-circle" fixed-width size="lg" />
+                    </b-button>
+                    <b-button variant="info">
+                      <font-awesome-icon icon="heart" fixed-width size="lg" />
+                    </b-button>
+                  </b-button-group>
+                </b-card>
+              </b-list-group-item>
+            </b-list-group>
           </b-col>
         </b-row>
 
@@ -205,105 +134,34 @@
         </b-row>
 
         <b-row>
-          <b-col cols="3">
-            <b-card style="max-width: 20rem;">
-              <b-card-img
-                :src="require('../assets/images/notebook-1.webp')"
-                alt="notebook-1"
-                top="true"
-              ></b-card-img>
+          <b-col cols="12">
+            <b-list-group horizontal>
+              <b-list-group-item v-for="(produto, index) in produtos" :key="index">
+                <b-card style="max-width: 20rem;">
+                  <b-card-img
+                    :src="'data:image/png;base64, ' + produto.image"
+                    :alt="produto.name"
+                    v-bind:top="true"
+                  ></b-card-img>
 
-              <b-card-text>Notebook Lenovo Ultrafino Ideapad 3i I3-10110u 4GB 256GB SSD Tela 15,6" Windows 11 - Prata</b-card-text>
+                  <b-card-text>{{produto.description}}</b-card-text>
 
-              <b-card-title>R$ 2832,99</b-card-title>
+                  <b-card-title>R$ {{produto.price}}</b-card-title>
 
-              <b-button-group style="width: 100%">
-                <b-button variant="success">
-                  <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="primary">
-                  <font-awesome-icon icon="info-circle" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="info">
-                  <font-awesome-icon icon="heart" fixed-width size="lg" />
-                </b-button>
-              </b-button-group>
-            </b-card>
-          </b-col>
-          <b-col cols="3">
-            <b-card style="max-width: 20rem;">
-              <b-card-img
-                :src="require('../assets/images/notebook-1.webp')"
-                alt="notebook-1"
-                top="true"
-              ></b-card-img>
-
-              <b-card-text>Notebook Lenovo Ultrafino Ideapad 3i I3-10110u 4GB 256GB SSD Tela 15,6" Windows 11 - Prata</b-card-text>
-
-              <b-card-title>R$ 2832,99</b-card-title>
-
-              <b-button-group style="width: 100%">
-                <b-button variant="success">
-                  <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="primary">
-                  <font-awesome-icon icon="info-circle" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="info">
-                  <font-awesome-icon icon="heart" fixed-width size="lg" />
-                </b-button>
-              </b-button-group>
-            </b-card>
-          </b-col>
-          <b-col cols="3">
-            <b-card style="max-width: 20rem;">
-              <b-card-img
-                :src="require('../assets/images/notebook-1.webp')"
-                alt="notebook-1"
-                top="true"
-              ></b-card-img>
-
-              <b-card-text>Notebook Lenovo Ultrafino Ideapad 3i I3-10110u 4GB 256GB SSD Tela 15,6" Windows 11 - Prata</b-card-text>
-
-              <b-card-title>R$ 2832,99</b-card-title>
-
-              <b-button-group style="width: 100%">
-                <b-button variant="success">
-                  <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="primary">
-                  <font-awesome-icon icon="info-circle" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="info">
-                  <font-awesome-icon icon="heart" fixed-width size="lg" />
-                </b-button>
-              </b-button-group>
-            </b-card>
-          </b-col>
-          <b-col cols="3">
-            <b-card style="max-width: 20rem;">
-              <b-card-img
-                :src="require('../assets/images/notebook-1.webp')"
-                alt="notebook-1"
-                top="true"
-              ></b-card-img>
-
-              <b-card-text>Notebook Lenovo Ultrafino Ideapad 3i I3-10110u 4GB 256GB SSD Tela 15,6" Windows 11 - Prata</b-card-text>
-
-              <b-card-title>R$ 2832,99</b-card-title>
-
-              <b-button-group style="width: 100%">
-                <b-button variant="success">
-                  <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="primary">
-                  <font-awesome-icon icon="info-circle" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="info">
-                  <font-awesome-icon icon="heart" fixed-width size="lg" />
-                </b-button>
-              </b-button-group>
-            </b-card>
+                  <b-button-group style="width: 100%">
+                    <b-button variant="success">
+                      <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
+                    </b-button>
+                    <b-button variant="primary">
+                      <font-awesome-icon icon="info-circle" fixed-width size="lg" />
+                    </b-button>
+                    <b-button variant="info">
+                      <font-awesome-icon icon="heart" fixed-width size="lg" />
+                    </b-button>
+                  </b-button-group>
+                </b-card>
+              </b-list-group-item>
+            </b-list-group>
           </b-col>
         </b-row>
 
@@ -321,105 +179,34 @@
         </b-row>
 
         <b-row>
-          <b-col cols="3">
-            <b-card style="max-width: 20rem;">
-              <b-card-img
-                :src="require('../assets/images/notebook-1.webp')"
-                alt="notebook-1"
-                top="true"
-              ></b-card-img>
+          <b-col cols="12">
+            <b-list-group horizontal>
+              <b-list-group-item v-for="(produto, index) in produtos" :key="index">
+                <b-card style="max-width: 20rem;">
+                  <b-card-img
+                    :src="'data:image/png;base64, ' + produto.image"
+                    :alt="produto.name"
+                    v-bind:top="true"
+                  ></b-card-img>
 
-              <b-card-text>Notebook Lenovo Ultrafino Ideapad 3i I3-10110u 4GB 256GB SSD Tela 15,6" Windows 11 - Prata</b-card-text>
+                  <b-card-text>{{produto.description}}</b-card-text>
 
-              <b-card-title>R$ 2832,99</b-card-title>
+                  <b-card-title>R$ {{produto.price}}</b-card-title>
 
-              <b-button-group style="width: 100%">
-                <b-button variant="success">
-                  <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="primary">
-                  <font-awesome-icon icon="info-circle" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="info">
-                  <font-awesome-icon icon="heart" fixed-width size="lg" />
-                </b-button>
-              </b-button-group>
-            </b-card>
-          </b-col>
-          <b-col cols="3">
-            <b-card style="max-width: 20rem;">
-              <b-card-img
-                :src="require('../assets/images/notebook-1.webp')"
-                alt="notebook-1"
-                top="true"
-              ></b-card-img>
-
-              <b-card-text>Notebook Lenovo Ultrafino Ideapad 3i I3-10110u 4GB 256GB SSD Tela 15,6" Windows 11 - Prata</b-card-text>
-
-              <b-card-title>R$ 2832,99</b-card-title>
-
-              <b-button-group style="width: 100%">
-                <b-button variant="success">
-                  <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="primary">
-                  <font-awesome-icon icon="info-circle" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="info">
-                  <font-awesome-icon icon="heart" fixed-width size="lg" />
-                </b-button>
-              </b-button-group>
-            </b-card>
-          </b-col>
-          <b-col cols="3">
-            <b-card style="max-width: 20rem;">
-              <b-card-img
-                :src="require('../assets/images/notebook-1.webp')"
-                alt="notebook-1"
-                top="true"
-              ></b-card-img>
-
-              <b-card-text>Notebook Lenovo Ultrafino Ideapad 3i I3-10110u 4GB 256GB SSD Tela 15,6" Windows 11 - Prata</b-card-text>
-
-              <b-card-title>R$ 2832,99</b-card-title>
-
-              <b-button-group style="width: 100%">
-                <b-button variant="success">
-                  <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="primary">
-                  <font-awesome-icon icon="info-circle" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="info">
-                  <font-awesome-icon icon="heart" fixed-width size="lg" />
-                </b-button>
-              </b-button-group>
-            </b-card>
-          </b-col>
-          <b-col cols="3">
-            <b-card style="max-width: 20rem;">
-              <b-card-img
-                :src="require('../assets/images/notebook-1.webp')"
-                alt="notebook-1"
-                top="true"
-              ></b-card-img>
-
-              <b-card-text>Notebook Lenovo Ultrafino Ideapad 3i I3-10110u 4GB 256GB SSD Tela 15,6" Windows 11 - Prata</b-card-text>
-
-              <b-card-title>R$ 2832,99</b-card-title>
-
-              <b-button-group style="width: 100%">
-                <b-button variant="success">
-                  <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="primary">
-                  <font-awesome-icon icon="info-circle" fixed-width size="lg" />
-                </b-button>
-                <b-button variant="info">
-                  <font-awesome-icon icon="heart" fixed-width size="lg" />
-                </b-button>
-              </b-button-group>
-            </b-card>
+                  <b-button-group style="width: 100%">
+                    <b-button variant="success">
+                      <font-awesome-icon icon="cart-plus" fixed-width size="lg" />
+                    </b-button>
+                    <b-button variant="primary">
+                      <font-awesome-icon icon="info-circle" fixed-width size="lg" />
+                    </b-button>
+                    <b-button variant="info">
+                      <font-awesome-icon icon="heart" fixed-width size="lg" />
+                    </b-button>
+                  </b-button-group>
+                </b-card>
+              </b-list-group-item>
+            </b-list-group>
           </b-col>
         </b-row>
       </div>
@@ -431,11 +218,35 @@
 export default {
   data() {
     return {
-      teste: "teste"
+      teste: "teste",
+      imagemTeste:
+        "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
+
+      imagemTeste2: "data:image/png;base64, ",
+
+      produtos: []
     };
   },
 
-  methods: {}
+  created: function() {
+    this.axios
+      .get("http://localhost:8080/ishop/product/listarTodos")
+      .then(response => {
+        console.log(response.data);
+        this.imagemTeste2 = "data:image/png;base64, " + response.data[0].image;
+        this.produtos = response.data;
+      })
+      .catch(exception => {
+        console.log(exception);
+      })
+      .finally(() => {});
+  },
+
+  methods: {
+    metodoTeste: function() {
+      console.log(this.produtos);
+    }
+  }
 };
 </script>
 
