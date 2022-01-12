@@ -6,27 +6,35 @@ import javax.persistence.GenerationType;
 import javax.persistence.OneToOne;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Column;
 
 @Entity
 @Table(name = "users")
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    private Long id;
 
     @OneToOne(mappedBy = "user")
     private CartUser user_cart;
 
+    @Column(name = "first_name", nullable = false, unique = false)
     private String first_name;
+
+    @Column(name = "last_name", nullable = false, unique = false)
     private String last_name;
+
+    @Column(name = "email", nullable = false, unique = false)
     private String email;
+
+    @Column(name = "password", nullable = false, unique = false)
     private String password;
 
 
     public Users() {
     }
 
-    public Users(int id, String first_name, String last_name, String email, String password) {
+    public Users(Long id, String first_name, String last_name, String email, String password) {
 
         this.id = id;
         this.first_name = first_name;
@@ -35,7 +43,7 @@ public class Users {
         this.password = password;
     }
     
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

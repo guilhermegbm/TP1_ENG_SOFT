@@ -8,13 +8,14 @@ import javax.persistence.MapsId;
 import javax.persistence.JoinColumn;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Column;
 
 @Entity
 @Table(name = "cart")
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    private Long id;
 
     @ManyToOne
     @MapsId("idProduct")
@@ -26,18 +27,19 @@ public class Cart {
     @JoinColumn(name = "id_user_cart")
     CartUser user_cart;
 
+    @Column(name = "quantity", nullable = true, unique = false)
     private int quantity;
 
     public Cart() {
     }
 
-    public Cart(int id, int quantity) {
+    public Cart(Long id, int quantity) {
 
         this.id = id;
         this.quantity = quantity;
     }
     
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

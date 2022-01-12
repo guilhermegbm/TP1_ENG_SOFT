@@ -7,29 +7,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Column;
 
 @Entity
 @Table(name = "products")
 public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    private Long id;
 
     @OneToMany(mappedBy = "products")
     Set<Cart> carts;
 
+    @Column(name = "name", nullable = false, unique = false)
     private String name;
 
     public Products() {
     }
 
-    public Products(int id, String name) {
+    public Products(Long id, String name) {
 
         this.id = id;
         this.name = name;
     }
     
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class CartUser {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    private Long id;
 
     @OneToMany(mappedBy = "user_cart")
     Set<Cart> carts;
@@ -26,27 +26,16 @@ public class CartUser {
     @JoinColumn(name = "id_user", referencedColumnName = "id")
     private Users users;
 
-    private int id_user;
-
     public CartUser() {
     }
 
-    public CartUser(int id, int id_user) {
+    public CartUser(Long id) {
 
         this.id = id;
-        this.id_user = id_user;
     }
     
-    public int getId() {
+    public Long getId() {
         return id;
-    }
-
-    public int getIdUser() {
-        return id_user;
-    }
-
-    public void setIdUser(int id_user) {
-        this.id_user = id_user;
     }
 
 }
