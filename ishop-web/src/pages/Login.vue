@@ -58,24 +58,6 @@ export default {
 
       valid_email: null,
       valid_senha: null,
-
-      usuariosClientes: [
-        {
-          nome: "Guilherme Barboza",
-          email: "gui@ishop.com",
-          senha: "111"
-        },
-        {
-          nome: "Hilário Correa",
-          email: "hilario@ishop.com",
-          senha: "222"
-        },
-        {
-          nome: "Túlio Dias",
-          email: "tulio@ishop.com",
-          senha: "333"
-        }
-      ]
     };
   },
 
@@ -90,27 +72,30 @@ export default {
       }
       this.loadingFazerLogin = true;
 
-      await this.sleep(1500);
+      this.axios
+        .get(
+          "http://localhost:8080/ishop/user/login?email=" +
+            this.loginData.email +
+            "&password=" +
+            this.loginData.senha
+        )
+        .then(response => {
+          let usuarioEncontrado = response.data;
 
-      let usuarioEncontrado = undefined;
-
-      this.usuariosClientes.forEach(usuario => {
-        if (
-          this.loginData.email == usuario.email &&
-          this.loginData.senha == usuario.senha
-        ) {
-          usuarioEncontrado = usuario;
-        }
-      });
-
-      this.loadingFazerLogin = false;
-
-      if (usuarioEncontrado) {
-        let caminho = "/dashboard";
-        this.$router.push({ path: caminho });
-      } else {
-        this.mensagem("Email ou senha incorretos", "Atenção", "warning");
-      }
+          if (usuarioEncontrado) {
+            let caminho = "/dashboard";
+            this.$router.push({ path: caminho });
+          } else {
+            this.mensagem("Email ou senha incorretos", "Atenção", "warning");
+          }
+        })
+        .catch(exception => {
+          console.log(exception);
+          this.mensagem("Erro ao fazer login", "Atenção", "warning");
+        })
+        .finally(() => {
+          this.loadingFazerLogin = false;
+        });
     },
     validateForm: function() {
       let formValido = true;

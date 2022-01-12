@@ -12,6 +12,9 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from "@fortawesome/vue-fontawesome";
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 import './assets/css/main.css'
 import './assets/css/login.css'
 import './assets/css/dashboard.css'
@@ -30,6 +33,8 @@ library.add(fas);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.component("font-awesome-layers", FontAwesomeLayers);
 Vue.component("font-awesome-layers-text", FontAwesomeLayersText);
+
+Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
 
