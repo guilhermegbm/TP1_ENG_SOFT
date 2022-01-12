@@ -13,6 +13,13 @@
       <b-collapse id="nav-collapse" is-nav>
         <!-- Alinhado à direita -->
         <b-navbar-nav class="ml-auto">
+          <b-nav-item href="#" right >
+            <b-button variant="info" style="padding: 0px">
+              <font-awesome-icon icon="shopping-cart" fixed-width />
+              <b-badge>0</b-badge>
+            </b-button>
+          </b-nav-item>
+
           <b-nav-item-dropdown text="Lang" right>
             <b-dropdown-item href="#">EN</b-dropdown-item>
             <b-dropdown-item href="#">ES</b-dropdown-item>
