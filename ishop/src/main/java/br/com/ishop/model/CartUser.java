@@ -8,12 +8,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_cart")
-
+@NamedQuery (name = "CartUser.findByUser", query = "select u from CartUser u where u.user = ?1")
 public class CartUser {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

@@ -1,7 +1,6 @@
 package br.com.ishop.controller;
 
 import br.com.ishop.model.*;
-import br.com.ishop.service.*;
 import br.com.ishop.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +16,12 @@ import java.util.Optional;
 public class MyController {
 
     @Autowired
-    private IUsersService usersService;
+    private UsersRepository usersService;
+
+    @Autowired
     private CartUserRepository userCartService;
+
+    @Autowired
     private CartRepository cartService;
 
     @GetMapping("/showUsers")
@@ -32,12 +35,15 @@ public class MyController {
     }
 
     @GetMapping("/shoppingCart/{id}")
-    public List<Cart> findCart(@PathVariable("id")Long id) {
+    public String findCart(@PathVariable("id") Long id, Model model) {
+        System.out.println(id);
+        Optional<Users> a = usersService.findById(id);
+        var user_cart = (CartUser) userCartService.findByUser(a.get());
 
-        var user_cart = (CartUser) userCartService.findByUser(id);
+        var carts = (List<Cart>) cartService.findByUserCart(user_cart);
+        model.addAttribute("itens", carts);
+        System.out.println(carts);
 
-        var carts = (List<Cart>) cartService.findByUserCart(user_cart.getId());
-
-        return carts;
+        return "shoppingCart/{id}";
     }
 }

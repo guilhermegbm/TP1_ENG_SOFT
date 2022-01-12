@@ -1,10 +1,11 @@
 package br.com.ishop.repository;
 
 import br.com.ishop.model.CartUser;
-import org.springframework.data.repository.CrudRepository;
+import br.com.ishop.model.Users;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CartUserRepository extends CrudRepository<CartUser, Long> {
-    CartUser findByUser(Long id);
+public interface CartUserRepository extends JpaRepository<CartUser, Long> {
+    CartUser findByUser(Users a);
 }
