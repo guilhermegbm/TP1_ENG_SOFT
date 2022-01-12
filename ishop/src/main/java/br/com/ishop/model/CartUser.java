@@ -12,19 +12,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "cart_user")
+@Table(name = "user_cart")
 
 public class CartUser {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @OneToMany(mappedBy = "user_cart")
+    @OneToMany(mappedBy = "userCart")
     Set<Cart> carts;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_user", referencedColumnName = "id")
-    private Users users;
+    private Users user;
 
     public CartUser() {
     }

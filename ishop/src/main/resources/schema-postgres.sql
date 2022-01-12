@@ -17,7 +17,7 @@ CREATE TABLE products
     PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS user_cart;
+DROP TABLE IF EXISTS user_cart CASCADE;
 CREATE TABLE user_cart
 (
     id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 ),
@@ -27,7 +27,7 @@ CREATE TABLE user_cart
         REFERENCES users(id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE CASCADE
-        NOT VALID,
+        NOT VALID
 );
 
 DROP TABLE IF EXISTS cart;
@@ -38,7 +38,7 @@ CREATE TABLE cart
 	id_product integer,
     quantity integer,
     PRIMARY KEY (id),
-	CONSTRAINT "fk_cartUser" FOREIGN KEY (id_user)
+	CONSTRAINT "fk_cartUser" FOREIGN KEY (id_user_cart)
         REFERENCES user_cart(id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE CASCADE

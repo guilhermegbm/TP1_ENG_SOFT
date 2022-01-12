@@ -25,7 +25,7 @@ public class Cart {
     @ManyToOne
     @MapsId("idUserCart")
     @JoinColumn(name = "id_user_cart")
-    CartUser user_cart;
+    CartUser userCart;
 
     @Column(name = "quantity", nullable = true, unique = false)
     private int quantity;
