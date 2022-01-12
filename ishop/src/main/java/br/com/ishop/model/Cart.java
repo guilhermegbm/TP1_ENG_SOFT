@@ -51,5 +51,7 @@ public class Cart {
         this.quantity = quantity;
     }
 
-
+    public Products getProducts(){
+        return products;
+    }
 }

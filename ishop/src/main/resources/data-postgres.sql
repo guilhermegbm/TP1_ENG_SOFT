@@ -2,16 +2,16 @@ INSERT into users (first_name, last_name, email, password)
 	VALUES ('Guilherme', 'Barbosa', 'gui@ishop.com', '111');
 
 INSERT into users (first_name, last_name, email, password)
-	VALUES ('Hilário', 'Correa', 'hilario@ishop.com', '222');
+	VALUES ('Hilario', 'Correa', 'hilario@ishop.com', '222');
 
 INSERT into users (first_name, last_name, email, password)
-	VALUES ('Túlio', 'Dias', 'tulio@ishop.com', '333');
+	VALUES ('Tulio', 'Dias', 'tulio@ishop.com', '333');
 
 INSERT into products (name)
 	VALUES ('Abajur');
 
 INSERT into products (name)
-	VALUES ('Baú');
+	VALUES ('Brinquedo');
 
 INSERT into products (name)
 	VALUES ('Caneca');

@@ -41,9 +41,13 @@ public class MyController {
         var user_cart = (CartUser) userCartService.findByUser(a.get());
 
         var carts = (List<Cart>) cartService.findByUserCart(user_cart);
+
         model.addAttribute("itens", carts);
         System.out.println(carts);
-
+        System.out.printf("Carrinho de %s %s \n", a.get().getName(), a.get().getSurname());
+        for (Cart carts_it : carts) {
+            System.out.printf("Item: %s   | Quantity: %d \n", carts_it.getProducts().getName() , carts_it.getQuantity());
+        }
         return "shoppingCart/{id}";
     }
 }
